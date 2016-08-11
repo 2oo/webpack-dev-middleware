@@ -139,6 +139,9 @@ module.exports = function(compiler, options) {
 		if(filename.indexOf("?") >= 0) {
 			filename = filename.substr(0, filename.indexOf("?"));
 		}
+		if (options.reactRouterNestedRoutes) {
+			filename = filename.split('/').pop();
+		}
 		return filename ? pathJoin(compiler.outputPath, filename) : compiler.outputPath;
 	}
 
